@@ -1,0 +1,8 @@
+<!--ylsc.wxml-->
+<view class="ylsc">
+
+<text >{{ hid }}</text>
+
+
+
+</view>

@@ -1,0 +1,60 @@
+<!--post_show.wxml-->
+<import src="../../../other/wxParse/wxParse.wxml" />
+
+<view class="post_show">
+  <view class="header_body">
+    <view class="header">
+      <view class="title">
+        <text class="node">{{node}}</text>{{title}}</view>
+    </view>
+    <view class="change">
+      ·
+      <text>{{ author }} </text> 发布于
+      <text class="create_at">{{ createTime }} </text> {{viewCount}} 次浏览 来自 分享
+    </view>
+  </view>
+  <view class="content">
+    <block class="post_body">
+
+      {{post_content}}
+      <import src="../../../other/wxParse/wxParse.wxml" />
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+
+    </block>
+  </view>
+
+
+
+
+
+  <block wx:for="{{replyTemArray}}" wx:key="">
+
+    <view class="reply_list">
+      <image style="width:30px;height:30px;    border-radius: 3px;" src="{{replyList[index].user.avatar}}"></image>
+      <view class="author_info">  {{ replyList[index].user.name }}
+        <view class="change">{{ replyList[index].created }}</view>
+        
+      </view>
+      <view class="floor">{{ index+1 }}</view>
+      <view class="reply_body">
+          <template is="wxParse" data="{{wxParseData:item}}" />
+
+      </view>
+    </view>
+  </block>
+<!--{{titleCount }}
+{{ loadCount}}-->
+<view wx:if="{{ titleCount == 0 }}">
+    <button type="default" disabled>评论空空乳液~~</button>
+</view>
+<view wx:elif="{{titleCount > 0 && titleCount > loadCount}}">
+    <view class="goto_counter">
+      <button type="primary" id="{{ page_id }}" loading="{{loading}}" plain bindtap="goto_counter">想看我的无底洞吗?点我~</button>
+    </view>
+  </view>
+  <view wx:else>
+      <button type="default" disabled>艾玛!被你看到了底下了~~~</button>
+  </view>
+
+
+</view>

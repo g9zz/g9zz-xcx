@@ -1,0 +1,40 @@
+{
+    "pages": [  
+        "pages/post/index/post_index",
+        "pages/post/show/post_show",
+        "pages/index/index",
+        "pages/logs/logs",
+        "pages/ylsc/ylsc",
+        "pages/post/store/post_store",
+        "pages/post/test/test"
+    ],
+    "window": {
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#000",
+        "navigationBarTitleText": "wechat",
+        "navigationBarTextStyle": "white",
+        "enablePullDownRefresh": true
+    },
+    "tabBar": {
+        "list": [
+            {
+                "pagePath": "pages/post/index/post_index",
+                "text": "叶落",
+                "iconPath": "images/duck.png",
+                "selectedIconPath": "images/duck.png"
+            },
+            {
+                "pagePath": "pages/post/test/test",                
+                "text": "山城",
+                "iconPath": "images/duck.png",
+                "selectedIconPath": "images/duck.png"
+            },
+            {
+                "pagePath": "pages/post/test/test",
+                "text": "秋",
+                "iconPath": "images/duck.png",
+                "selectedIconPath": "images/duck.png"
+            }
+        ]
+    }
+}

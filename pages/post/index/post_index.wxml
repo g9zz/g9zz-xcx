@@ -1,0 +1,30 @@
+<!--post_index.wxml-->
+<view class="post_index">
+  <block wx:for="{{ posts }}">
+    <view class="post_title" id="{{item.hid}}" catchtap="redictDetail">
+      <image src="{{item.user.avatar}}" class="avatar"></image>
+      <text class="node">{{ item.node.displayName }}</text>
+      <text class="title">{{ item.title }} </text>
+      <text class="reply_view">
+        <text class="reply_count">{{item.replyCount}}</text>/<text class="view_count">{{item.viewCount}}</text>
+      </text>
+      <text class="create_time" bindtap="changeTimestamp">{{ item.lastReplyActived }}</text>
+    </view>
+
+  </block>
+
+
+<view wx:if="{{ titleCount == 0 }}">
+    <button type="default" disabled>空空乳液~~</button>
+</view>
+  <view  wx:elif="{{ titleCount >= loadCount}}">
+    <view class="goto_counter">
+      <button type="primary" id="{{ page_id }}" loading="{{loading}}" plain bindtap="goto_counter">玩命加载</button>
+    </view>
+  </view>
+  <view wx:else>
+      <button type="default" disabled>我是有底线的~</button>
+  </view>
+
+
+</view>

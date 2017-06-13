@@ -1,0 +1,82 @@
+/* post_index.wxss */
+.post_title {
+    overflow: hidden;
+    position: relative;
+    padding: 10px 0 10px 10px;
+    font-size: 14px;
+    /*border-bottom: 4px;*/
+    border-bottom: 1px solid  #f0f0f0 ;
+}
+.avatar {
+    height: 30px;
+    width: 30px;
+    border-radius: 3px;
+    padding: -12px -12px;
+}
+.node{
+    background-color: #e5e5e5;
+    color: #999;
+    padding: 2px 3px;
+    margin: 2px 4px;
+    margin-bottom: 8px;
+    -webkit-border-radius: 3px;
+    max-width: 70%;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+    font-size: 12px;
+    /*max-width: 20%;*/
+}
+.title{
+    max-width: 50%;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+    font-size: 16px;
+    line-height: 34px;
+}
+.create_time{
+    float: right;
+    margin-top: 10px;
+    margin-right: 5px;
+    font-size: 12px;
+}
+.post {
+    border-bottom-color: #999;
+}
+.reply_view {
+    position: absolute;
+    bottom: 0;
+    left: 85px;
+    text-align: left;
+    line-height: 2em;
+    font-size: 10px;
+}
+.reply_count{
+    text-align: left;
+    line-height: 2em;
+    font-size: 10px;
+    color: #9e78c0;
+}
+.view_count {
+    text-align: left;
+    line-height: 2em;
+    font-size: 10px;
+    color: #b4b4b4;
+}
+
+.goto_counter {
+    width: 70%;
+    height:70%;
+    margin:0 auto;    
+    margin-top: 20px;
+}
+
+.data_bottom {
+    border: 1px solid #999;
+    margin: 0 auto;
+}
