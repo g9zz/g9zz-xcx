@@ -6,7 +6,7 @@ Page({
         components: [],
     },
 
-    getNode:function(){
+    getNode: function () {
         var that = this;
         wx.request({
             url: API.getIndexHost + '/node/',
@@ -19,14 +19,14 @@ Page({
                     compant[item] = {
                         title: test[item].displayName,
                         remark: test[item].displayName,
-                        url:test[item].hid,
+                        url: test[item].hid,
                         icon: '../../../assets/images/iconfont-xnumber.png',
                     }
                 }
                 that.setData({
                     components: compant
                 })
-                
+
             }
         })
     },
@@ -34,13 +34,13 @@ Page({
     /**
      * 跳转列表页
      */
-    redictIndex:function(e){
+    redictIndex: function (e) {
         var url = e.currentTarget.id;
         app.getPostNode.postNode = url,
-        console.log(app.getPostNode);
-        
+            console.log(app.getPostNode);
+
         wx.switchTab({
-            url: '../index/post_index',
+            url: '../../post/index/post_index',
             complete: function (res) {
                 console.log(res)
             },
@@ -53,8 +53,11 @@ Page({
     },
 
 
-    onLoad:function(option){
+    onLoad: function (option) {
         this.getNode();
+        wx.setNavigationBarTitle({
+            title: '节点列表'
+        })
     },
 
     modSwitch(e) {

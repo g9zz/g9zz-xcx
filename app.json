@@ -1,12 +1,13 @@
 {
-    "pages": [  
-        "pages/post/index/post_index",
+    "pages": [
+        "pages/post/index/post_index",        
+        "pages/post/store/post_store",
         "pages/post/show/post_show",
         "pages/index/index",
         "pages/logs/logs",
         "pages/ylsc/ylsc",
-        "pages/post/store/post_store",
-        "pages/post/test/test"
+        "pages/post/test/test",
+        "pages/node/list/node_list"
     ],
     "window": {
         "backgroundTextStyle": "dark",
@@ -24,7 +25,7 @@
                 "selectedIconPath": "images/duck.png"
             },
             {
-                "pagePath": "pages/post/test/test",                
+                "pagePath": "pages/node/list/node_list",
                 "text": "山城",
                 "iconPath": "images/duck.png",
                 "selectedIconPath": "images/duck.png"

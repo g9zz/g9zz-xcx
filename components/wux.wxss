@@ -1,0 +1,2 @@
+@import './styles/button.wxss';
+@import './styles/xnumber.wxss';

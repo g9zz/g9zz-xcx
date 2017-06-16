@@ -26,5 +26,8 @@ App({
   },
   globalData:{
     userInfo:null
+  },
+  getPostNode:{
+      postNode:''
   }
 })
