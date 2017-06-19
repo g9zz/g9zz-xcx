@@ -219,17 +219,17 @@ initButton(position = 'bottomRight') {
                 }
             ],
             buttonClicked(index, item) {
-                index === 0 && wx.showModal({
+                index === 0 && wx.navigateTo({
                     title: 'Thank you for your support!1',
                     showCancel: !1,
                 })
 
-                index === 1 && wx.switchTab({
-                    url: "../../node/list/node_list"
+                index === 1 && wx.navigateTo({
+                    url: "../store/post_store"
                 })
 
-                index === 2 && wx.switchTab({
-                    url: '/pages/index/index'
+                index === 2 && wx.navigateTo({
+                    url: '../store/post_store'
                 })
 
                 return true

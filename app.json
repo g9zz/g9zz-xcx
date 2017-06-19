@@ -1,7 +1,8 @@
 {
     "pages": [
+                "pages/post/store/post_store",
         "pages/post/index/post_index",        
-        "pages/post/store/post_store",
+
         "pages/post/show/post_show",
         "pages/index/index",
         "pages/logs/logs",
