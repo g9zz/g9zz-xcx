@@ -1,65 +1,95 @@
+var API = require('../../../utils/api.js');
 Page({
     data: {
-        windowHeight: 'auto',
-        commentList: [
-            {
-                commodityIcon: '/images/example0.png',
-                commodityId: 1
-            },
-            {
-                commodityIcon: '/images/example0.png',
-                commodityId: 2
-            },
-            {
-                commodityIcon: '/images/example0.png',
-                commodityId: 3
-            }
-        ]
+        nodeList: [],
+        nodeIndex:0,
+        nodeIds:[],
+        showTopTips:false,
+        content:'',
+        titile:'',
+        errorMessage:'',
     },
-    onShow: function () {
-        // 页面显示
-        var vm = this
-        var commentList = vm.data.commentList;
-        // 初始化评论选项为好评
-        for (var i = 0, len = commentList.length; i < len; i++) {
-            commentList[i].commentType = 'GOOD';
-        }
-        vm.setData({
-            commentList: commentList
-        });
-    },
-    selectCommentType: function (e) {
-        console.log('选中的是第几条评论的哪一种类型', e.currentTarget.dataset);
-        var commentList = this.data.commentList;
-        var index = parseInt(e.currentTarget.dataset.index);
-        commentList[index].commentType = e.currentTarget.dataset.type;
+    
+    showTopTips: function () {
+        console.log(22);
+        var that = this;
         this.setData({
-            'commentList': commentList
+            showTopTips: true
         });
-    },
-    saveContent: function (e) {
-        console.log('保存评论到列表', e.detail.value, e.currentTarget.dataset.index);
-        var vm = this;
-        var commentList = vm.data.commentList;
-        var index = e.currentTarget.dataset.index;
-        commentList[index].content = e.detail.value;
-        vm.setData({
-            commentList: commentList
-        });
-    },
-    submitComment: function (e) {
-        var vm = this;
-        console.log('查看表单e', e.detail.value);
-        var commentList = [];
-        for (var i = 0, len = vm.data.commentList.length; i < len; i++) {
-            commentList.push({
-                commodityId: vm.data.commentList[i].commodityId,
-                content: e.detail.value['content_' + i],
-                score: vm.data.commentList[i].commentType
+        setTimeout(function () {
+            that.setData({
+                showTopTips: false
             });
-        }
-        console.log('提交评价参数', {
-            comments: commentList
-        });
+        }, 3000);
+    },
+    bindNodeChange: function (e) {
+        this.setData({
+            nodeIndex: e.detail.value
+        })
+    },
+
+    saveContent:function(e){
+        // console.log(e.detail.value)
+        this.setData({
+            content:e.detail.value
+        })
+    },
+
+    saveTitle:function(e){
+        this.setData({
+            title:e.detail.value
+        })
+    },
+
+    getNode:function(){
+        var that = this
+        var url = API.getIndexHost + '/node';
+        var nodes = [];
+        var nodeIds = [];
+        wx.request({
+            url: url,
+            success:function(res) {
+                var result = res.data.data;
+                for (var key in result) {
+                    nodes = nodes.concat(result[key].displayName);
+                    nodeIds = nodeIds.concat(result[key].hid);
+                } 
+                that.setData({
+                    nodeList:nodes,
+                    nodeIds:nodeIds
+                })   
+            }
+        })
+    },
+
+
+    formButton:function(e){
+        var title = this.data.title;
+        var content = this.data.content;
+        var nodeList = this.data.nodeList;
+        var nodeIndex = this.data.nodeIndex;
+        var nodeIds = this.data.nodeIds;
+        var url = API.getConsoleHost + '/post';
+        var that = this;
+        wx.request({
+            url: url,
+            method:'POST',
+            success:function(res){
+                console.log(res.data.message);
+                if (res.data.code != 0) {
+                    that.setData({
+                        errorMessage:res.data.message
+                    })
+                    this.showTopTips();
+
+                }
+            }
+        })
+        // console.log(title,content,nodeIds[nodeIndex]);
+    },
+
+    onLoad:function(option) {
+        // this.showTopTips();
+        this.getNode();
     }
 })

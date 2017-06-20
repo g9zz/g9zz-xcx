@@ -1,24 +1,45 @@
- <form bindsubmit="submitComment">
-  <view class="order_comment_bg">
-    <view wx:for="{{commentList}}" style="background:#fff;">
-      <view class="order_comment_item">
-        <view class="weui-flex order_comment_content bottom_border">
-        
-          <view class="weui-flex__item order_comment_textarea_box">
-            <view class="placeholder">
-              <textarea class="weui-textarea order_comment_textarea" bindblur="saveContent" placeholder="写评论" name="content_{{index}}" data-index="{{index}}" value="{{item.content}}" auto-height />
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+   
+    <view class="page__bd">
+        <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{ errorMessage }}</view>
+
+        <view class="weui-cells__title">标题</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__bd">
+                    <input class="weui-input" focus bindblur="saveTitle" style="height:" placeholder="请输入标题" maxlength="30" />
+                </view>
             </view>
-          </view>
         </view>
-        <view>
-          <view class="weui-flex order_comment_type">
+
+        <view class="weui-cells__title">内容</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                 <view class="weui-flex__item order_comment_textarea_box">
+                <view class="placeholder">
+                <textarea class="weui-textarea order_comment_textarea" bindtap="content" bindblur="saveContent" bindfocus="saveContent" placeholder="写评论"   />
+                </view>
           </view>
+            </view>
         </view>
-      </view>
-      <view class="line"></view>
+
+
+        <view class="weui-cells__title">分类</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_select">
+                <view class="weui-cell__bd">
+                    <picker bindchange="bindNodeChange" value="{{ nodeIndex }}" range="{{nodeList}}">
+                        <view class="weui-select">{{nodeList[nodeIndex]}}</view>
+                    </picker>
+                </view>
+            </view>
+
+        </view>
+
+
+
+        <view class="weui-btn-area">
+            <button class="weui-btn" type="primary" bindtap="formButton">确定</button>
+        </view>
     </view>
-    <view class="commnet_btn_box">
-      <button class="weui-btn" style="background:#158447;font-size:30rpx;padding:10rpx 0;" type="primary" formType="submit">确定</button>
-    </view>
-  </view>
-</form>
+</view>
