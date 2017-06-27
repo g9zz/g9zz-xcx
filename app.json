@@ -1,14 +1,14 @@
 {
     "pages": [
-                "pages/post/store/post_store",
-        "pages/post/index/post_index",        
-
+        "pages/post/index/post_index",
+        "pages/post/store/post_store",
         "pages/post/show/post_show",
         "pages/index/index",
         "pages/logs/logs",
         "pages/ylsc/ylsc",
         "pages/post/test/test",
-        "pages/node/list/node_list"
+        "pages/node/list/node_list",
+        "pages/auth/auth"
     ],
     "window": {
         "backgroundTextStyle": "dark",

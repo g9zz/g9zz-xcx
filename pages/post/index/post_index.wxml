@@ -38,7 +38,7 @@
       <text class="reply_view">
         <text class="reply_count">{{item.replyCount}}</text>/<text class="view_count">{{item.viewCount}}</text>
       </text>
-      <text class="create_time" bindtap="changeTimestamp">{{ item.lastReplyActived }}</text>
+      <text class="create_time" bindtap="changeTimestamp">{{ item.lastReplyActivated }}</text>
     </view>
 
   </block>

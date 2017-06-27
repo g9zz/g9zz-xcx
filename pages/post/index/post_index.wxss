@@ -76,6 +76,7 @@
     height:70%;
     margin:0 auto;    
     margin-top: 20px;
+    padding-bottom: 20px;
 }
 
 .data_bottom {
