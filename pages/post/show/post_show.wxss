@@ -101,3 +101,8 @@ page {
     margin:0 auto;    
     margin-top: 20px;
 }
+
+.page{
+    margin-top: 20px; 
+    border-radius: 4px;
+}

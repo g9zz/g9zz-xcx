@@ -3,7 +3,12 @@ var app = getApp();
 Page({
     data: {
         type: `grid`,
-        components: [],
+        components: [{
+            title: '全部',
+            remark: '全部',
+            url: '',
+            icon: '../../../assets/images/iconfont-xnumber.png',
+        }],
     },
 
     getNode: function () {
@@ -14,9 +19,9 @@ Page({
             success: function (res) {
                 var test = res.data.data;
                 console.log(test);
-                var compant = {};
+                var compant = that.data.components;
                 for (var item in test) {
-                    compant[item] = {
+                    compant[parseInt(item) + 1 ] = {
                         title: test[item].displayName,
                         remark: test[item].displayName,
                         url: test[item].hid,

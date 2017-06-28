@@ -57,4 +57,26 @@
   </view>
 
 
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+   
+    <view class="page__bd">
+
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                 <view class="weui-flex__item order_comment_textarea_box">
+                <view class="placeholder">
+                <textarea class="weui-textarea order_comment_textarea" bindtap="content" bindblur="saveReply" bindfocus="saveReply" placeholder="写评论(可以使用markdown语法)"   />
+                </view>
+          </view>
+            </view>
+        </view>
+
+        <view class="weui-btn-area">
+            <button class="weui-btn" type="primary" bindtap="formButton">确定回复</button>
+        </view>
+    </view>
+</view>
+
+
+
 </view>
