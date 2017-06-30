@@ -1,0 +1,39 @@
+<view class="page">
+        <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{ errorMessage }}</view>
+
+    <view class="page__bd">
+        <view class="weui-cells weui-cells_after-title my_header" bindtap="navigateMe">
+            <view class="weui-cell weui-cell_access">
+                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+                    <image src="{{ avatar }}" style="width: 50px; height: 50px; display: block"/>
+
+                </view>
+                <view class="weui-cell__bd">
+                    <view>{{ username }}</view>
+                    <view style="font-size: 13px;color: #888888;" >{{ email }}</view>
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </view>
+        </view>
+
+        <view class="weui-cells weui-cells_after-title">
+
+            <view class="weui-cell weui-cell_access" bindtap="navigateNotify">
+                <view class="weui-cell__bd">
+                    <view style="display: inline-block; vertical-align: middle">通知</view>
+                    <view class="weui-badge" style="margin-left: 5px;" hidden="{{ notifyHidden }}" >{{ notifyNum }}</view>
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access">详细信息</view>
+            </view>
+            <view class="weui-cell weui-cell_access">
+                <view class="weui-cell__bd">
+                    <view style="display: inline-block; vertical-align: middle">私信</view>
+                    <view class="weui-badge" style="margin-left: 5px;" hidden="{{ messageHidden }}" >{{ privateMessage }}</view>
+                </view>
+                <view class="weui-cell__ft ">暂不可用</view>
+
+            </view>
+        </view>
+
+    </view>
+</view>

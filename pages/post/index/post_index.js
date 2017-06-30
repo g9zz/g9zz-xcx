@@ -171,6 +171,9 @@ Page({
         this.fetchData(options.id);
        
         this.initButton();
+        wx.setNavigationBarTitle({
+            title: '帖子列表'
+        });
     },
 
 

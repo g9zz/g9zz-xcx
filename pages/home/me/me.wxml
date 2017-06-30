@@ -1,0 +1,72 @@
+<view class="page">
+  <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{ errorMessage }}</view>
+
+  <view class="page__bd">
+    <view class="weui-cells weui-cells_after-title my_header" bindtap="navigateMe">
+      <view class="weui-cell weui-cell_access">
+        <view class="weui-cell__bd">
+          <view style="display: inline-block; vertical-align: middle">头像</view>
+        </view>
+
+        <view class="weui-cell__ft weui-cell__ft_in-access">
+          <image src="{{ avatar }}" class="avatar" style="width: 50px; height: 50px; display: block;"></image>
+        </view>
+
+
+      </view>
+    </view>
+
+    <view class="weui-cells weui-cells_after-title">
+
+      <view class="weui-cell weui-cell_access" bindtap="navigateNotify">
+        <view class="weui-cell__bd">
+          <view style="display: inline-block; vertical-align: middle">姓名</view>
+
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access">{{ name }}</view>
+      </view>
+      
+      <view class="weui-cell weui-cell_access" bindtap="navigateNotify">
+        <view class="weui-cell__bd">
+          <view style="display: inline-block; vertical-align: middle">邮箱</view>
+
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access">{{ email }}</view>
+      </view>
+
+      <view class="weui-cell weui-cell_access" bindtap="navigateNotify">
+        <view class="weui-cell__bd">
+          <view style="display: inline-block; vertical-align: middle">电话</view>
+
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access">{{ mobile }}</view>
+      </view>
+
+      <view class="weui-cell weui-cell_access" bindtap="navigateNotify" hidden="{{ roleHidden }}">
+        <view class="weui-cell__bd">
+          <view style="display: inline-block; vertical-align: middle">角色</view>
+
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access">{{ role }}</view>
+      </view>
+
+      <view class="weui-cell weui-cell_access" bindtap="navigateNotify">
+        <view class="weui-cell__bd">
+          <view style="display: inline-block; vertical-align: middle">已授权</view>
+
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access">
+        <image src="{{ github }}" hidden="{{ githubHidden }}" class="iconss" style="width: 20px; height: 20px; "></image>
+        <image src="{{ google }}" hidden="{{ googleHidden }}" class="iconss" style="width: 20px; height: 20px; "></image>
+        <image src="{{ weibo }}" hidden="{{ weiboHidden }}" class="iconss" style="width: 20px; height: 20px; "></image>
+        <image src="{{ qq }}" hidden="{{ qqHidden }}" class="iconss" style="width: 20px; height: 20px; "></image>
+        <image src="{{ douban }}" hidden="{{ doubanHidden }}" class="iconss" style="width: 20px; height: 20px; "></image>
+        <image src="{{ xcx }}" hidden="{{ xcxHidden }}" class="iconss" style="width: 20px; height: 20px; "></image>
+        <image src="{{ wechat }}" hidden="{{ wechatHidden }}" class="iconss" style="width: 20px; height: 20px; "></image>
+        </view>
+      </view>
+
+    </view>
+
+  </view>
+</view>

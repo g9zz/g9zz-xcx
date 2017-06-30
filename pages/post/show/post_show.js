@@ -30,6 +30,8 @@ Page({
         errorMessage: '',//错误信息
 
         options:'',
+
+        value:'',
     },
 
     showTopTips: function (message) {
@@ -166,13 +168,15 @@ Page({
         })
     },
 
-    // content:function(e){
-    //     console.log(e.detail.value)
-    // },
-    // onPullDownRefresh: function () {
-    //     wx.stopPullDownRefresh()
-    // },
+    bindKeyInput:function(e){
+        this.setData({
+            saveReply: e.detail.value
+        })
+    },
 
+    /**
+     * 提交回复
+     */
     formButton: function (e) {
         var that = this;
         // that.saveReply();
@@ -199,21 +203,15 @@ Page({
             success: function (res) {
                 console.log(res.data);
                 if (res.data.code == 0) {
-                    that.data.saveReply = '';
+                    //清空回复框
+                    that.setData({
+                        value: ''
+                    })
+                    //本页刷新
                     var page = getCurrentPages().pop();
                     if (page == undefined || page == null) return;
                     page.onLoad(options)
-                    // that.fetchData(postHid);
-                    // getCurrentPages().onLoad();
-                    // var url1 = './post_show?hid='+postHid
-                    // wx.navigateTo({
-                    //     url: url1,
-                    //     success: function (e) {
-                    //         var page = getCurrentPages().pop();
-                    //         if (page == undefined || page == null) return;
-                    //         page.onLoad(e);
-                    //     }
-                    // })
+
                 } else if (res.data.code == 411000000) {
                     that.authorization();
                 } else {

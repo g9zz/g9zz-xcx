@@ -1,0 +1,34 @@
+.weui-badge {
+  display: inline-block;
+  padding: .15em .4em;
+  min-width: 8px;
+  border-radius: 18px;
+  background-color: #E64340;
+  color: #FFFFFF;
+  line-height: 1.2;
+  text-align: center;
+  font-size: 12px;
+  vertical-align: middle;
+}
+.weui-badge_dot {
+  padding: .4em;
+  min-width: 0;
+}
+
+.avatar{
+    border: 1px solid lightblue;
+    border-radius: 4px;
+}
+.iconss{
+    /*border: 1px solid lightblue;*/
+    border-radius: 4px;
+    margin-right: 4px;
+    margin-top: 2px;
+}
+.page__bd {
+    padding-top: 20px;
+}
+
+.my_header{
+    margin-bottom: 30px;
+}

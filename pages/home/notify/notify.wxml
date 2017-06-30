@@ -1,0 +1,61 @@
+<view class="page">
+  <scroll-view scroll-x="true" class="xscroll_bar">
+    <view class="menu_item {{index==activeIndex?'active':''}}" style="width:{{itemWidth}};" wx:for="{{menus}}" bindtap="tabChange" data-index="{{index}}">
+      <view class="{{!(index==0 || index-1==activeIndex || index==activeIndex)?'menu_item_border':''}}">
+        {{item.menu}}
+      </view>
+    </view>
+  </scroll-view>
+  <view class="page__bd">
+    <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{ errorMessage }}</view>
+
+    <view class="weui-cells__title">通知列表
+      <button hidden="{{ buttonHidden }}" class="weui-btn mini-btn" type="primary" size="mini" bindtap="notifyAllRead">全部标记已读</button>
+    </view>
+
+    <view class="weui-cells weui-cells_after-title">
+      <block class="classname" wx:for="{{ notify }}">
+
+        <view wx:if="{{ item.read_at == null }}">
+          <navigator url="../../post/show/post_show?hid={{item.post.hid}}" id="{{ item.id }}" bindtap="readNotify" class="weui-cell weui-cell_access" hover-class="weui-cell_active" style="background:#F8F8F8;border-top:1rpx solid #D9D9D9;">
+            <view class="weui-cell__hd">
+              <image src="{{item.userFrom.avatar}}" style="margin-right: 15px;vertical-align: middle;width:40px; height: 40px;border-radius:4px;border:1px solid lightblue;"></image>
+            </view>
+            <view class="weui-cell__bd">
+              <text style="font-weight:bold;">{{ item.userFrom.name }}</text> 在
+              <text hover-class="navigator-hover" style="color:blue;;display:inline-block" id="{{ item.id }}" bindtap="readNotify">{{ item.post.title }}</text> 回复了你 </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access">点击查看</view>
+          </navigator>
+
+        </view>
+        <view wx:else>
+          <navigator url="../../post/show/post_show?hid={{item.post.hid}}" id="{{ item.id }}" bindtap="readNotify" class="weui-cell weui-cell_access" hover-class="weui-cell_active" style="border-top:1rpx solid #D9D9D9;">
+            <view class="weui-cell__hd">
+              <image src="{{item.userFrom.avatar}}" style="margin-right: 15px;vertical-align: middle;width:40px; height: 40px;border-radius:4px;border:1px solid lightblue;"></image>
+            </view>
+            <view class="weui-cell__bd">
+              <text style="font-weight:bold;">{{ item.userFrom.name }}</text> 在
+              <text hover-class="navigator-hover" style="color:blue;;display:inline-block" id="{{ item.id }}" bindtap="readNotify">{{ item.post.title }}</text> 回复了你 </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access">点击查看</view>
+          </navigator>
+
+        </view>
+      </block>
+    </view>
+
+
+    <view wx:if="{{ notifyCount == 0 }}">
+      <button type="default" disabled>无最新动态,赶紧去造点新闻~</button>
+    </view>
+    <view wx:elif="{{notifyCount > 0 && notifyCount > loadCount}}">
+      <view class="goto_counter">
+        <button type="primary" id="{{ page_id }}" class="loadMore" loading="{{loading}}" plain bindtap="goto_counter">加载更多~</button>
+      </view>
+    </view>
+    <view wx:else>
+      <button type="default" disabled>已到地核核心~~</button>
+    </view>
+
+
+  </view>
+</view>

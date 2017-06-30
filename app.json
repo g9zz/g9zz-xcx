@@ -1,6 +1,7 @@
 {
     "pages": [
         "pages/post/index/post_index",
+        "pages/home/index/index",
         "pages/post/store/post_store",
         "pages/post/show/post_show",
         "pages/index/index",
@@ -8,7 +9,9 @@
         "pages/ylsc/ylsc",
         "pages/post/test/test",
         "pages/node/list/node_list",
-        "pages/auth/auth"
+        "pages/auth/auth",
+        "pages/home/notify/notify",
+        "pages/home/me/me"
     ],
     "window": {
         "backgroundTextStyle": "dark",
@@ -27,12 +30,18 @@
             },
             {
                 "pagePath": "pages/node/list/node_list",
-                "text": "山城",
+                "text": "山",
                 "iconPath": "images/duck.png",
                 "selectedIconPath": "images/duck.png"
             },
             {
                 "pagePath": "pages/post/test/test",
+                "text": "城",
+                "iconPath": "images/duck.png",
+                "selectedIconPath": "images/duck.png"
+            },
+            {
+                "pagePath": "pages/home/index/index",
                 "text": "秋",
                 "iconPath": "images/duck.png",
                 "selectedIconPath": "images/duck.png"

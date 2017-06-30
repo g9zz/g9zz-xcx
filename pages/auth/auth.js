@@ -35,6 +35,18 @@ var page = {
         })
     },
 
+    emailInput:function(e){
+        this.setData({
+            email:e.detail.value
+        })
+    },
+
+    passwordInput: function (e) {
+        this.setData({
+            password: e.detail.value
+        })
+    },
+
     submitLogin:function(e){
         var that = this;
         var email = that.data.email;
@@ -42,7 +54,11 @@ var page = {
         // console.log(email,password);
         var url = API.getIndexHost + '/login';
         var bind_account = app.getToken.bind_account
-        console.log(bind_account);
+        
+        var pages = getCurrentPages();
+        var currPage = pages[pages.length - 1];   //当前页面
+        var prevPage = pages[pages.length - 2]; 
+
         wx.request({
             url: url,
             method:"POST",
@@ -59,12 +75,23 @@ var page = {
                     app.getToken.token = res.data.data.token
                     wx.setStorage({
                         key: "hid",
-                        data: res.data.data.hid
+                        data: res.data.data.hid,
+                        success:function(e){
+                            prevPage.setData({
+                                hid: res.data.data.hid
+                            })
+                        }
                     })
                     wx.setStorage({
                         key: "token",
                         data: res.data.data.token,
-                        success: function (res) {
+                        success: function (e) {
+                            prevPage.setData({
+                                token: res.data.data.token
+                            })
+                            var page = getCurrentPages().pop();
+                            if (page == undefined || page == null) return;
+                            page.onLoad(e);
                             wx.navigateBack();
                         }
                     })

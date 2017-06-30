@@ -16,7 +16,7 @@
                     <view class="weui-label">邮箱</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" bindblur="email" placeholder="请输邮箱"/>
+                    <input class="weui-input" bindinput="emailInput" bindblur="email" placeholder="请输邮箱"/>
                 </view>
             </view>
 
@@ -25,7 +25,7 @@
                     <view class="weui-label">密码</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" bindblur="password" placeholder="请输入密码" password="true" />
+                    <input class="weui-input" bindblur="password" bindinput="passwordInput" placeholder="请输入密码" password="true" />
                 </view>
                 
             </view>

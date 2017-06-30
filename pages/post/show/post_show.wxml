@@ -65,7 +65,7 @@
             <view class="weui-cell">
                  <view class="weui-flex__item order_comment_textarea_box">
                 <view class="placeholder">
-                <textarea class="weui-textarea order_comment_textarea" bindtap="content" bindblur="saveReply" bindfocus="saveReply" placeholder="写评论(可以使用markdown语法)"   />
+                <textarea class="weui-textarea order_comment_textarea" bindtap="content" bindblur="saveReply" bindfocus="saveReply" bindinput="bindKeyInput" placeholder="写评论(可以使用markdown语法)"  value="{{ value }}" />
                 </view>
           </view>
             </view>
