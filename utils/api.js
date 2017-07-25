@@ -3,11 +3,11 @@ var INDEX_HOST = 'https://demo.g9zz.com';
 
 var CONSOLE_HOST = 'https://demo.g9zz.com/console';
 
-var POST_LIMIT = 2;
+var POST_LIMIT = 10;
 
-var REPLY_LIMIT = 1;
+var REPLY_LIMIT = 10;
 
-var NOTIFY_LIMIT = 4;
+var NOTIFY_LIMIT = 10;
 
 function __getIndexHost() {
     return INDEX_HOST;
