@@ -1,6 +1,6 @@
 <import src="../../../components/button/button.wxml"/>
 
-<template is="button" data="{{ ...$wux.button.br }}"/>
+<template is="button"  data="{{ ...$wux.button.br }}"/>  
 
 
 <view class="page">

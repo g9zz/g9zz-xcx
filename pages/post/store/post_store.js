@@ -129,7 +129,7 @@ Page({
         var that = this;
         that.getNode();
         wx.setNavigationBarTitle({
-            title: '创建新主题'
+            title: '叶落山城秋'
         });
         // wx.getStorage({
         //     key: 'bind_account',

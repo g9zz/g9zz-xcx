@@ -19,6 +19,7 @@
         "navigationBarTitleText": "wechat",
         "navigationBarTextStyle": "white",
         "enablePullDownRefresh": true
+                
     },
     "tabBar": {
         "list": [

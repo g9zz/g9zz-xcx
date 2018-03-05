@@ -36,7 +36,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        title: "帖子列表",
+        title: "叶落山城秋",
         titleCount: '',
         loadCount:'',
         posts: [],
@@ -163,7 +163,7 @@ Page({
             }
         })
         wx.setNavigationBarTitle({
-            title: '帖子列表'
+            title: '叶落山城秋'
         })
 
     },
@@ -172,7 +172,7 @@ Page({
        
         this.initButton();
         wx.setNavigationBarTitle({
-            title: '帖子列表'
+            title: '叶落山城秋'
         });
     },
 

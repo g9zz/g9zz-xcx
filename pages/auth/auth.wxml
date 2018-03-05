@@ -27,7 +27,18 @@
                 <view class="weui-cell__bd">
                     <input class="weui-input" bindblur="password" bindinput="passwordInput" placeholder="请输入密码" password="true" />
                 </view>
-                
+              
+            </view>
+            <view class="weui-cell weui-cell_input weui-cell_vcode">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">验证码</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" bindblur="captcha" bindinput="captchaInput"  placeholder="请输入验证码" />
+                </view>
+                <view class="weui-cell__ft">
+                    <image class="weui-vcode-img" bindtap="flashCaptcha" src="{{ authCaptcha }}" style="width: 108px"></image>
+                </view>
             </view>
         </view>
         

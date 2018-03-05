@@ -25,14 +25,14 @@
                 </view>
                 <view class="weui-cell__ft weui-cell__ft_in-access">详细信息</view>
             </view>
-            <view class="weui-cell weui-cell_access">
+             <view class="weui-cell weui-cell_access">
                 <view class="weui-cell__bd">
-                    <view style="display: inline-block; vertical-align: middle">私信</view>
+                    <view style="display: inline-block; vertical-align: middle">msg</view>
                     <view class="weui-badge" style="margin-left: 5px;" hidden="{{ messageHidden }}" >{{ privateMessage }}</view>
                 </view>
                 <view class="weui-cell__ft ">暂不可用</view>
 
-            </view>
+            </view> 
         </view>
 
     </view>

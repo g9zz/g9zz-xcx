@@ -32,6 +32,8 @@ Page({
         options:'',
 
         value:'',
+
+        rich_node:[],
     },
 
     showTopTips: function (message) {
@@ -155,7 +157,7 @@ Page({
                     node: res.data.data.node ? res.data.data.node.displayName : "叶落山城秋",
                     post_content: WxParse.wxParse('article', 'html', res.data.data.content, that, 5),
                     post_hid: res.data.data.hid,
-
+                    // rich_node:res.data.data.content
                 })
             }
         })
@@ -240,7 +242,7 @@ Page({
         that.fetchData(options.hid);
         that.fetchReply(options.hid);
         wx.setNavigationBarTitle({
-            title: '帖子详情'
+            title: '叶落山城秋'
         });
         that.data.options = options;
         that.data.saveReply = '';

@@ -7,7 +7,10 @@ var page = {
     data:{
         showTopTips: false,
         email:'',
-        password:''
+        password:'',
+        captcha:'',
+        authCaptcha:'',
+        randText:'',
     },
 
     showTopTips: function (message) {
@@ -21,6 +24,12 @@ var page = {
                 showTopTips: false
             });
         }, 3000);
+    },
+
+    captcha:function(e){
+      this.setData({
+        captcha:e.detail.value
+      })
     },
 
     email:function(e){
@@ -47,6 +56,28 @@ var page = {
         })
     },
 
+    captchaInput: function (e) {
+      this.setData({
+        captcha: e.detail.value
+      })
+    },
+
+    makeId:function(e) {
+      let text = "";
+      let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      for (let i = 0; i < 10; i++)
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+  
+      this.setData({
+        authCaptcha: API.getIndexHost + '/captcha?uuid='+text,
+        randText:text,
+      })
+    },
+
+    flashCaptcha:function(e) {
+      this.makeId();
+    },
+
     submitLogin:function(e){
         var that = this;
         var email = that.data.email;
@@ -58,14 +89,18 @@ var page = {
         var pages = getCurrentPages();
         var currPage = pages[pages.length - 1];   //当前页面
         var prevPage = pages[pages.length - 2]; 
-
+        var captcha = that.data.captcha;
         wx.request({
             url: url,
             method:"POST",
             data:{
                 'email':email,
                 'password':password,
-                'auth': bind_account
+                'auth': bind_account,
+                'captcha': captcha
+            },
+            header:{
+              'x-auth-uuid': that.data.randText
             },
             success:function(res) {
                 console.log(res.data);
@@ -113,6 +148,7 @@ var page = {
         wx.setNavigationBarTitle({
             title: '绑定账号'
         });
+        this.makeId();
     },
 }
 
